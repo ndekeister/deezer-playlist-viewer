@@ -1,0 +1,81 @@
+<div fxFlex fxLayout="column" *ngIf="userPlaylistInfo">
+  <div fxFlex fxLayout="column" *ngIf="userPlaylistInfo.list.length > 0">
+    <div
+      class="main-container"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="loadMorePlaylists()"
+    >
+      <mat-grid-list cols="{{ nbCols }}" rowHeight="1:1">
+        <mat-grid-tile
+          *ngFor="let playlist of userPlaylistInfo.list; trackBy: trackByFn"
+        >
+          <div class="playlist-container" fxLayout="column">
+            <div class="title">{{ playlist.title }}</div>
+            <div class="flip-container" fxFlex (click)="goToPath(playlist.id)">
+              <layout-flip-content>
+                <div front>
+                  <img
+                    class="flip-front-img"
+                    alt="Cover"
+                    [src]="playlist[playlistPictureProperty]"
+                  />
+                </div>
+                <div back fxLayout="column" fxLayoutAlign="center center">
+                  <button type="button" color="primary" mat-raised-button>
+                    Explore
+                  </button>
+                </div>
+              </layout-flip-content>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+
+    <div
+      class="loading-additional-data"
+      fxLayout="column"
+      fxFlex
+      fxLayoutAlign="center center"
+      [style.visibility]="
+        isError.additionalPlaylists || isLoading.additionalPlaylists
+          ? 'visible'
+          : 'hidden'
+      "
+    >
+      <layout-simple-loading-card-with-error-handling
+        [errorMessage]="'Failed to load additional playlists'"
+        [isError]="isError.additionalPlaylists"
+        [isLoading]="isLoading.additionalPlaylists"
+        [loadingMessage]="'Loading more playlists'"
+        (retryAction)="loadMorePlaylists()"
+      ></layout-simple-loading-card-with-error-handling>
+    </div>
+  </div>
+
+  <div
+    fxFlex
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    *ngIf="userPlaylistInfo.list.length === 0"
+  >
+    <mat-card>This user don't have any playlist</mat-card>
+  </div>
+</div>
+
+<div
+  fxLayout="column"
+  fxFlex
+  fxLayoutAlign="center center"
+  *ngIf="!userPlaylistInfo"
+>
+  <layout-simple-loading-card-with-error-handling
+    [errorMessage]="'Failed to load playlists'"
+    [isError]="isError.userPlaylistInfo"
+    [isLoading]="isLoading.userPlaylistInfo"
+    [loadingMessage]="'Loading playlists'"
+    (retryAction)="loadUserPlaylistInfo()"
+  ></layout-simple-loading-card-with-error-handling>
+</div>

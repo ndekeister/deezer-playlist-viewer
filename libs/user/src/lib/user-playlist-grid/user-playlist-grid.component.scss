@@ -1,0 +1,48 @@
+@import 'mixins';
+@import 'variables';
+
+.main-container {
+  mat-grid-list {
+    mat-grid-tile {
+      .playlist-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        height: calc(100% - 10px);
+        margin: 5px;
+        width: calc(100% - 10px);
+
+        .flip-container {
+          cursor: pointer;
+
+          /deep/ .flip-content {
+            height: calc(100% - 16px);
+            padding: 8px;
+            width: calc(100% - 16px);
+          }
+          .flip-front-img {
+            @include playlist-cover();
+            height: calc(100% - 20px);
+            margin: 10px;
+            width: calc(100% - 20px);
+          }
+        }
+
+        .title {
+          @include ellipsis();
+          background-color: rgba(255, 255, 255, 0.9);
+          border-bottom: 2px solid $primary-color;
+          border-radius: 15px 15px 0 0;
+          color: rgba(0, 0, 0, 0.7);
+          font-size: 1.1em;
+          padding: 5px 5px;
+          text-align: center;
+          width: calc(100% - 10px);
+        }
+      }
+    }
+  }
+}
+
+.loading-additional-data {
+  padding: 50px 0;
+}

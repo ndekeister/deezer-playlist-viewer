@@ -1,0 +1,355 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "deezer-playlist-viewer": {
+      "root": "apps/deezer-playlist-viewer/",
+      "sourceRoot": "apps/deezer-playlist-viewer/src",
+      "projectType": "application",
+      "prefix": "deezer-playlist-viewer",
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/deezer-playlist-viewer",
+            "index": "apps/deezer-playlist-viewer/src/index.html",
+            "main": "apps/deezer-playlist-viewer/src/main.ts",
+            "polyfills": "apps/deezer-playlist-viewer/src/polyfills.ts",
+            "tsConfig": "apps/deezer-playlist-viewer/tsconfig.app.json",
+            "assets": [
+              "apps/deezer-playlist-viewer/src/favicon.ico",
+              "apps/deezer-playlist-viewer/src/assets"
+            ],
+            "styles": ["apps/deezer-playlist-viewer/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/theme/src/scss/"]
+            },
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/deezer-playlist-viewer/src/environments/environment.ts",
+                  "with": "apps/deezer-playlist-viewer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "deezer-playlist-viewer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "deezer-playlist-viewer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "deezer-playlist-viewer:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/deezer-playlist-viewer/tsconfig.app.json",
+              "apps/deezer-playlist-viewer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "apps/deezer-playlist-viewer/jest.config.js",
+            "tsConfig": "apps/deezer-playlist-viewer/tsconfig.spec.json",
+            "setupFile": "apps/deezer-playlist-viewer/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "deezer-playlist-viewer-e2e": {
+      "root": "apps/deezer-playlist-viewer-e2e",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/builders:cypress",
+          "options": {
+            "cypressConfig": "apps/deezer-playlist-viewer-e2e/cypress.json",
+            "tsConfig": "apps/deezer-playlist-viewer-e2e/tsconfig.e2e.json",
+            "devServerTarget": "deezer-playlist-viewer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "deezer-playlist-viewer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/deezer-playlist-viewer-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "dialogs": {
+      "root": "libs/dialogs",
+      "sourceRoot": "libs/dialogs/src",
+      "projectType": "library",
+      "prefix": "dialogs",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/dialogs/tsconfig.lib.json",
+              "libs/dialogs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/dialogs/jest.config.js",
+            "tsConfig": "libs/dialogs/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "user": {
+      "root": "libs/user",
+      "sourceRoot": "libs/user/src",
+      "projectType": "library",
+      "prefix": "user",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/user/tsconfig.lib.json",
+              "libs/user/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/user/jest.config.js",
+            "tsConfig": "libs/user/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "layout": {
+      "root": "libs/layout",
+      "sourceRoot": "libs/layout/src",
+      "projectType": "library",
+      "prefix": "layout",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/tsconfig.lib.json",
+              "libs/layout/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/layout/jest.config.js",
+            "tsConfig": "libs/layout/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "api": {
+      "root": "libs/api",
+      "sourceRoot": "libs/api/src",
+      "projectType": "library",
+      "prefix": "api",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api/tsconfig.lib.json",
+              "libs/api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/api/jest.config.js",
+            "tsConfig": "libs/api/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "playlist": {
+      "root": "libs/playlist",
+      "sourceRoot": "libs/playlist/src",
+      "projectType": "library",
+      "prefix": "playlist",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/playlist/tsconfig.lib.json",
+              "libs/playlist/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/playlist/jest.config.js",
+            "tsConfig": "libs/playlist/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "prefix": "utils",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/utils/tsconfig.lib.json",
+              "libs/utils/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/utils/jest.config.js",
+            "tsConfig": "libs/utils/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "theme": {
+      "root": "libs/theme",
+      "sourceRoot": "libs/theme/src",
+      "projectType": "library",
+      "prefix": "theme",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/theme/tsconfig.lib.json",
+              "libs/theme/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/builders:jest",
+          "options": {
+            "jestConfig": "libs/theme/jest.config.js",
+            "tsConfig": "libs/theme/tsconfig.spec.json"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/schematics:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/schematics"
+  },
+  "schematics": {
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "framework": "angular"
+    },
+    "@nrwl/schematics:library": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "deezer-playlist-viewer"
+}

@@ -1,0 +1,19 @@
+<div fxLayout="column" fxFlex *ngIf="playlist">
+  <playlist-details-expansion-panel
+    [playlist]="playlist"
+  ></playlist-details-expansion-panel>
+
+  <div class="tracks-container" fxFlex>
+    <playlist-tracks-card [tracks]="playlist.tracks"></playlist-tracks-card>
+  </div>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex *ngIf="!playlist">
+  <layout-simple-loading-card-with-error-handling
+    [errorMessage]="'Failed to load playlist data'"
+    [isError]="isError"
+    [isLoading]="isLoading"
+    [loadingMessage]="'Loading playlist data'"
+    (retryAction)="ngOnInit()"
+  ></layout-simple-loading-card-with-error-handling>
+</div>

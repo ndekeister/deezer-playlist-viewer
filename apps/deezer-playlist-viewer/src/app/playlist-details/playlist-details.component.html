@@ -1,0 +1,12 @@
+<deezer-playlist-viewer-page-with-toolbar
+  [backpath]="'/user/' + userId"
+  [toolbarTitle]="getToolbarTitle()"
+  [userId]="userId"
+>
+  <playlist-details
+    fxLayout="column"
+    fxFlex
+    [playlistId]="playlistId"
+    *ngIf="playlistId"
+  ></playlist-details>
+</deezer-playlist-viewer-page-with-toolbar>

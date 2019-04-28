@@ -1,0 +1,10 @@
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin playlist-cover {
+  border-radius: 10px;
+  box-shadow: -5px 5px rgba(0, 0, 0, 0.3);
+}

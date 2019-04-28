@@ -1,0 +1,13 @@
+<layout-simple-loading-card
+  (click)="loadingMessage = 'toto'"
+  [diameter]="diameter"
+  [text]="loadingMessage"
+  *ngIf="isLoading"
+></layout-simple-loading-card>
+
+<mat-card *ngIf="isError && !isLoading">
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+    <mat-icon color="warn">warning</mat-icon> <span>{{ errorMessage }}</span>
+    <button mat-button (click)="retryAction.emit()">Re-try</button>
+  </div>
+</mat-card>

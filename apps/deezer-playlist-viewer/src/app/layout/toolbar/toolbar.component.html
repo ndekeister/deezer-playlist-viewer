@@ -1,0 +1,9 @@
+<layout-simple-toolbar [backPath]="backPath" [title]="title">
+  <span fxFlex></span>
+  <img
+    class="rounded-image"
+    src="{{ user.picture_small }}"
+    matTooltip="User: {{ user.name }}"
+    *ngIf="user"
+  />
+</layout-simple-toolbar>

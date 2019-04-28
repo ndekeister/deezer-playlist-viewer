@@ -1,0 +1,38 @@
+:host {
+  .flip-content {
+    height: 100%;
+    width: 100%;
+
+    .flip-content-inner {
+      height: 100%;
+      position: relative;
+      transition-property: transform;
+      transform-style: preserve-3d;
+      width: 100%;
+    }
+
+    .flip-content-front,
+    .flip-content-back {
+      backface-visibility: hidden;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+      /deep/ > div {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .flip-content-back {
+      transform: rotateY(180deg);
+    }
+
+    &:hover,
+    &:focus {
+      .flip-content-inner {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}

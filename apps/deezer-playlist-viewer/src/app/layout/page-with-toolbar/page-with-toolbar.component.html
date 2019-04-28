@@ -1,0 +1,19 @@
+<div fxLayout="column" fxFlex *ngIf="user">
+  <deezer-playlist-viewer-toolbar
+    [backPath]="backpath"
+    [title]="toolbarTitle"
+    [user]="user"
+  ></deezer-playlist-viewer-toolbar>
+  <ng-content></ng-content>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="center center" fxFlex *ngIf="!user">
+  <layout-simple-loading-card-with-error-handling
+    [loadingMessage]="'Loading user information'"
+    [isLoading]="isLoading"
+    [errorMessage]="'Failed to load user information'"
+    [isError]="isError"
+    (retryAction)="ngOnInit()"
+  >
+  </layout-simple-loading-card-with-error-handling>
+</div>

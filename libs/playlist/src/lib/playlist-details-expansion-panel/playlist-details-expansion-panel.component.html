@@ -1,0 +1,31 @@
+<mat-accordion>
+  <mat-expansion-panel [expanded]="'true'">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ playlist.title }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div
+      class="playlist-description"
+      fxLayout="row"
+      fxLayoutAlign="start center"
+    >
+      <img class="picture" src="{{ playlist.picture }}" />
+      <div class="info">
+        <div>
+          Duration:
+          <span class="helping-text">{{ playlist.duration | duration }}</span>
+        </div>
+        <div>
+          Author: <span class="helping-text">{{ playlist.author }}</span>
+        </div>
+        <div>
+          Tracks: <span class="helping-text">{{ playlist.nbTracks }}</span>
+        </div>
+        <div>
+          Fans: <span class="helping-text">{{ playlist.nbFans }}</span>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

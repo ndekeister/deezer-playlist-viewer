@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "module": "es2015",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@dialogs/*": ["libs/dialogs/src/*"],
+      "@user/*": ["libs/user/src/*"],
+      "@layout/*": ["libs/layout/src/*"],
+      "@api/*": ["libs/api/src/*"],
+      "@playlist/*": ["libs/playlist/src/*"],
+      "@utils/*": ["libs/utils/src/*"],
+      "@deezer-playlist-viewer/theme": ["libs/theme/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

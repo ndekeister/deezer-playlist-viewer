@@ -1,0 +1,13 @@
+<div class="flip-content">
+  <div
+    class="flip-content-inner"
+    [style.transition-duration]="transitionDuration + 's'"
+  >
+    <div class="flip-content-front">
+      <ng-content class="flip-content-front" select="[front]"></ng-content>
+    </div>
+    <div class="flip-content-back">
+      <ng-content select="[back]"></ng-content>
+    </div>
+  </div>
+</div>

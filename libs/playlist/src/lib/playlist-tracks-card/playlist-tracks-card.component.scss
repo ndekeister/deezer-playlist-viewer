@@ -1,0 +1,15 @@
+@import 'variables';
+
+mat-card {
+  table {
+    &.mat-table {
+      width: 100%;
+    }
+  }
+
+  .no-data {
+    color: $text-helping-color;
+    padding: 40px;
+    text-align: center;
+  }
+}

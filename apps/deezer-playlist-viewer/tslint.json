@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      ["deezer-playlist-viewer", "test"],
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      ["deezer-playlist-viewer", "test"],
+      "kebab-case"
+    ]
+  }
+}

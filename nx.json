@@ -1,0 +1,39 @@
+{
+  "npmScope": "deezer-playlist-viewer",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "deezer-playlist-viewer": {
+      "tags": []
+    },
+    "deezer-playlist-viewer-e2e": {
+      "tags": []
+    },
+    "dialogs": {
+      "tags": []
+    },
+    "user": {
+      "tags": []
+    },
+    "layout": {
+      "tags": []
+    },
+    "api": {
+      "tags": []
+    },
+    "playlist": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
+    },
+    "theme": {
+      "tags": []
+    }
+  }
+}

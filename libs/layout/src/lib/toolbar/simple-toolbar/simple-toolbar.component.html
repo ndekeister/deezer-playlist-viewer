@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="start center">
+  <button mat-icon-button (click)="goBack()" *ngIf="backPath">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="title" [matTooltip]="title">{{ title }}</div>
+  <ng-content></ng-content>
+</mat-toolbar>

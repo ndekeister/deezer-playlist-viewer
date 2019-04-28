@@ -1,0 +1,38 @@
+<mat-card fxLayout="column" fxLayoutAlign="center center">
+  <form (ngSubmit)="userId && exploreUser()">
+    <mat-form-field>
+      <input
+        type="number"
+        name="userId"
+        min="1"
+        placeholder="Pick a Deezer user ID"
+        matInput
+        [disabled]="isLoading"
+        [(ngModel)]="userId"
+      />
+      <button
+        type="button"
+        aria-label="Clear"
+        mat-button
+        matSuffix
+        mat-icon-button
+        (click)="resetUserId()"
+        [disabled]="!userId || isLoading"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="explore-container" fxLayout="row" fxLayoutAlign="center">
+      <button
+        type="submit"
+        color="primary"
+        mat-raised-button
+        [disabled]="!userId"
+        *ngIf="!isLoading"
+      >
+        Explore playlists
+      </button>
+      <mat-spinner [diameter]="32" *ngIf="isLoading"></mat-spinner>
+    </div>
+  </form>
+</mat-card>

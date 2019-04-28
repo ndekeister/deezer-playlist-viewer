@@ -1,0 +1,31 @@
+@import 'mixins';
+@import 'variables';
+
+mat-expansion-panel {
+  mat-expansion-panel-header {
+    &.mat-expanded {
+      mat-panel-title {
+        font-size: 2em;
+      }
+    }
+  }
+
+  .playlist-description {
+    .picture {
+      @include playlist-cover();
+      height: 120px;
+      margin-right: 20px;
+      width: 120px;
+    }
+
+    .info {
+      div {
+        padding-top: 2px;
+
+        .helping-text {
+          color: $text-helping-color;
+        }
+      }
+    }
+  }
+}
