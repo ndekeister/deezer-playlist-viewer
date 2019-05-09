@@ -14,13 +14,15 @@ import { FlexModule } from '@angular/flex-layout';
 import { SimpleLoadingCardComponent } from './simple-loading-card/simple-loading-card.component';
 import { FlipContentComponent } from './flip-content/flip-content.component';
 import { SimpleLoadingCardWithErrorHandlingComponent } from './simple-loading-card-with-error-handling/simple-loading-card-with-error-handling.component';
+import { ButtonWithDisabledStateComponent } from './button-with-disabled-state/button-with-disabled-state.component';
 
 @NgModule({
   declarations: [
     SimpleToolbarComponent,
     SimpleLoadingCardComponent,
     FlipContentComponent,
-    SimpleLoadingCardWithErrorHandlingComponent
+    SimpleLoadingCardWithErrorHandlingComponent,
+    ButtonWithDisabledStateComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { SimpleLoadingCardWithErrorHandlingComponent } from './simple-loading-ca
     SimpleToolbarComponent,
     SimpleLoadingCardComponent,
     FlipContentComponent,
-    SimpleLoadingCardWithErrorHandlingComponent
+    SimpleLoadingCardWithErrorHandlingComponent,
+    ButtonWithDisabledStateComponent
   ]
 })
 export class LayoutModule {}

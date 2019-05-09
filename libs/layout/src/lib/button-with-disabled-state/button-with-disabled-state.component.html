@@ -1,0 +1,6 @@
+<ng-content *ngIf="!isDisabled"></ng-content>
+<div matTooltip="{{ disabledTooltipMessage }}" *ngIf="isDisabled">
+  <button mat-icon-button disabled>
+    <mat-icon>{{ disabledIconName }}</mat-icon>
+  </button>
+</div>
